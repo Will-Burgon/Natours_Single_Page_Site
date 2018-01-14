@@ -1,0 +1,100 @@
+.form {
+    &__group:not(:last-child) {
+    margin-bottom: 2rem;
+    }
+    &__input {
+    font-size: 1.5rem;
+    font-family: inherit; //browsers set their own font family for forms hence the declaration here.
+    color:inherit;
+    padding: 1.5rem 2rem;
+    border-radius: .2rem;
+    background-color: rgba($color-white, 50%);
+    border: none;
+    border-bottom: .3rem solid transparent;
+    width: 70%;
+    display: block; //give it its own line
+    transition: all .3s;
+
+        &:focus{ //important pseudo class when dealing with forms.
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+            border-bottom: .3rem solid $color-primary;
+
+            &:invalid {
+            border-bottom: .3rem solid $color-secondary-dark;
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+
+    }
+
+   
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700; //Bold
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block; //So we can use the box model properties like margin on it.
+        transition: all .3s;
+    }
+
+    &__input:placeholder-shown + &__label { //the + means the adjacent sibling(after the first sibling). A non-adjacent sibling we would use ~
+        opacity: 0;
+        visibility: hidden; //we use this with opacity because we cannot animate visibility.
+        transform: translateY(-4rem); //This gives it the animation of going down. 
+
+    }
+    &__radio-group {
+        width:40%;
+        display:inline-block;
+    }
+
+    &__radio-label {
+        font-size: $font-default-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4rem;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-button {
+        height: 2rem;
+        width: 2rem;
+        border: 0.5rem solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -0.4rem;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%; //This is for a circle
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__radio-input:checked ~ &__radio-label > &__radio-button::after {
+
+        opacity: 1;
+
+    }
+
+   
+    
+}

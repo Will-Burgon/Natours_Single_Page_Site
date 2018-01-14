@@ -1,0 +1,19 @@
+{
+  "name": "natours_starter",
+  "version": "1.0.0",
+  "description": "landing_page",
+  "main": "script.js",
+  "dependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  },
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css",
+    "watch:sass": "nodemon -e scss -x \"npm run compile:sass\""
+ 
+  },
+  "author": "",
+  "license": "ISC"
+}

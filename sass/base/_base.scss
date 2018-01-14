@@ -1,0 +1,56 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+
+
+
+
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    //This defines what 1rem is.
+    /*font-size: 10px; Makes using rem a lot easier.*/
+    font-size: 62.5%; /*Same as 10px - 10/16*100 - this is to allow the user to change the font size if they wished.*/
+
+  /*  @include respond(phone) {
+        font-size: 50%;
+    }
+  */
+
+  //We don't need the above as the the tab-port will cover the size at 50%
+
+    @include respond(tab-land) { //width < 1200px?
+        font-size: 56.25%; //1 rem = 9px so 9/16 = 56.25%
+    }
+//Putting the smaller screen after the tab-land means that the website is affected at 900px
+    @include respond(tab-port) { //width < 900px?
+        font-size: 50%; //1 rem = 8px so 8/16 = 50%
+    }
+
+    @include respond(big-desk) {
+        font-size: 75%; //1 rem = 12px so 12/16 = 75%
+    }
+}
+
+body {
+  
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) { 
+        padding: 0;
+        margin: 0;
+    }
+}
