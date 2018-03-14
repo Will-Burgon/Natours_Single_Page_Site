@@ -1,11 +1,11 @@
 .header {
     position: relative;
-    height: 95vh;
+    height: 85vh;
     background-image: -webkit-gradient(linear,
     left top, right bottom,
     from(rgba($color-primary-light, 0.801)),
     to(rgba($color-primary-dark, 0.801))),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
     background-image: linear-gradient(to right bottom,
     rgba($color-primary-light, 0.801),
     rgba($color-primary-dark, 0.801)),
@@ -14,11 +14,28 @@
     background-position: top;
     /*Always ensures the top of the image 
 remains at the top during a browser resize.*/
+  
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);/*Go clockwise from each point
 so 0 0 means it doesn't move from the top left. 100% 0 means it moves across the 
 x-axis by 100% but the y value is 0. Notice the figure of 75vh. This means the
 polygon is dynamic, will always be 75% of the viewport height.*/
+height: 95vh;
+}
+
+
+//Responsive Background Images:
+
+@media (min-resolution: 192dpi) and (min-width: 37.5em), //where comma means OR
+       (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),  //NEED THIS FOR SAFARI - APPLE WANKERS
+       (min-width: 125em) {
+    background-image: linear-gradient(to right bottom,
+    rgba($color-primary-light, 0.801),
+    rgba($color-primary-dark, 0.801)),
+    url(../img/hero.jpg);
+}
+
 
 @include respond(phone){
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

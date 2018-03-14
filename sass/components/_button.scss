@@ -2,82 +2,77 @@
     &,
     &:link,
     &:visited {
-     text-transform: uppercase;
-     text-decoration: none;
-     padding: 1.5rem 4rem;
-     display: inline-block; /*So we can add some padding to it. We can center it by 
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        /*So we can add some padding to it. We can center it by 
      setting text-align: center to the parent container, text-box*/
-     border-radius: 10rem;
-     transition: all .2s; /*Transition has to be on the INITIAL state- IMPORTANT*/
-     position: relative;
-     font-size: $font-default-size;
-
-     //Change the button element
-     border: none;
-     cursor: pointer;
+        border-radius: 10rem;
+        transition: all .2s;
+        /*Transition has to be on the INITIAL state- IMPORTANT*/
+        position: relative;
+        font-size: $font-default-size;
+        //Change the button element
+        border: none;
+        cursor: pointer;
     }
-     
-     &:hover {
-         transform: translateY(-.3rem);
-         box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-          /*How we style the virtual button*/
-     &::after {
-         transform: scaleX(1.4) scaleY(1.6);
-         opacity: 0;
-         }
-     }
-     
-     &:active,
-     &:focus {
-         outline: none;
-         transform: translateY(-.1rem);
-         box-shadow: 0 .5rem 10rem rgba($color-black, 0.2);
-     }
-     
-     &--white {
-         background-color: $color-white;
-         color: $color-grey-dark; 
- 
-         &::after {
-             background-color: $color-white;
-         }
-     }
-
-     &--green {
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        /*How we style the virtual button*/
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 10rem rgba($color-black, 0.2);
+    }
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    &--green {
         background-color: $color-primary;
-        color: $color-white; 
-
+        color: $color-white;
         &::after {
             background-color: $color-primary;
         }
     }
-     
-     &::after {
-         content: ""; /*Always need content when using the ::after psuedoclass*/
-         display: inline-block; /*Same as parent- btn:link*/
-         height: 100%; /*It is a child of parent so hence height and width is 100%*/
-         width: 100%;
-         border-radius: 10rem;
-         position: absolute; /*Keeps it in the same place as the parent. Must set parent to position:relative;*/
-         top: 0;
-         left: 0;
-         z-index: -1; /*Puts is behind the parent.*/
-         transition: all .4s;
-     }
-     
-    
-    
-     
-     &--animated {
-         animation: moveInBottom .5s ease-out .75s; /*name duration timing-function delay*/
-         animation-fill-mode: backwards; /*Starts at the 0% point, hence it disappears due to opacity being set to 0 
+    &::after {
+        content: "";
+        /*Always need content when using the ::after psuedoclass*/
+        display: inline-block;
+        /*Same as parent- btn:link*/
+        height: 100%;
+        /*It is a child of parent so hence height and width is 100%*/
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        /*Keeps it in the same place as the parent. Must set parent to position:relative;*/
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /*Puts is behind the parent.*/
+        transition: all .4s;
+    }
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        /*name duration timing-function delay*/
+        animation-fill-mode: backwards;
+        /*Starts at the 0% point, hence it disappears due to opacity being set to 0 
          at this position*/
-     }
-     
-     
- }
+    }
+}
 
- .btn-text {
+.btn-text {
     &:link,
     &:visited {
         font-size: $font-default-size;
@@ -87,20 +82,17 @@
         border-bottom: 0.1rem solid $color-primary;
         padding: 0.3rem;
         transition: all .2s;
-        
     }
-
     &:hover {
         background: $color-primary;
         color: #fff;
         box-shadow: 0 1rem 2rem rgba($color-black, .15);
         transform: translateY(-.2rem);
     }
-
     &:active {
         background: $color-primary;
         color: #fff;
         box-shadow: 0 0.5rem 1rem rgba($color-black, .15);
         transform: translateY(0);
     }
- }
+}
