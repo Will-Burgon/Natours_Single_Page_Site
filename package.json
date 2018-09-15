@@ -4,11 +4,11 @@
   "description": "landing_page",
   "main": "script.js",
   "devDependencies": {
-    "autoprefixer": "^7.2.5",
+    "autoprefixer": "^9.1.5",
     "concat": "^1.0.3",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
-    "postcss-cli": "^5.0.0",
+    "postcss-cli": "^6.0.0",
     "npm-run-all": "^4.1.2"
   },
   "scripts": {
